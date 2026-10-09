@@ -37,3 +37,46 @@ cd Backend
 npm run create-admin -- admin@example.com "a-strong-password"
 ```
 HCI Module
+
+---
+
+## 👨‍💻 Team Members
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/PabodaWA">
+        <img src="https://github.com/PabodaWA.png" width="100px;" alt="Paboda Medhani"/>
+        <br />
+        <sub><b>Paboda Medhani</b></sub>
+      </a>
+      <br />
+      <sub>Full Stack Developer</sub>
+      <br />
+      <a href="https://github.com/PabodaWA">GitHub</a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Lasiru71">
+        <img src="https://github.com/Lasiru71.png" width="100px;" alt="Lasiru"/>
+        <br />
+        <sub><b>Lasiru</b></sub>
+      </a>
+      <br />
+      <sub>Full Stack Developer</sub>
+      <br />
+      <a href="https://github.com/Lasiru71">GitHub</a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/hiruniNwijesinghe">
+        <img src="https://github.com/hiruniNwijesinghe.png" width="100px;" alt="Hiruni"/>
+        <br />
+        <sub><b>Hiruni</b></sub>
+      </a>
+      <br />
+      <sub>Full Stack Developer</sub>
+      <br />
+      <a href="https://github.com/hiruniNwijesinghe">GitHub</a>
+    </td>
+  
+
+---
