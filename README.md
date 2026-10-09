@@ -28,14 +28,6 @@ Confirmed booking classrooms also include authenticated real-time chat. Messages
 
 Google sign-in and password reset are intentionally shown as configuration placeholders until OAuth and email-provider credentials are supplied.
 
-## Feature ownership
-
-- `mobile/src/features/lasiru` — tutor search, filters, listings and comparison
-- `mobile/src/features/shyni` — tutor profiles, qualifications, reviews and verification UI
-- `mobile/src/features/hiruni` — bookings, schedules, rescheduling and reminders
-- `mobile/src/features/medhani` — online classrooms, payments and session details
-- `mobile/src/features/admin` — platform overview, user management and tutor verification
-
 Matching backend APIs live in `Backend/src/routes`, with MongoDB models in `Backend/src/models`.
 
 Create or update an administrator securely with:
