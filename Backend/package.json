@@ -1,0 +1,40 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "test": "node --test test/*.test.js",
+    "test:shyni": "node scripts/shyni-e2e.js",
+    "test:lasiru": "node scripts/lasiru-shortlist-e2e.js",
+    "test:medhani": "node scripts/medhani-e2e.js",
+    "create-admin": "node scripts/create-admin.js",
+    "seed:availability": "node scripts/seed-tutor-availability.js",
+    "fix:credit-index": "node scripts/fix-credit-transaction-index.js",
+    "check": "node --check src/server.js && node --check src/app.js && node --check src/realtime.js && node --check src/models/CreditTransaction.js && node --check src/models/Message.js && node --check src/models/SavedSearch.js && node --check src/models/TutorRequest.js && node --check src/models/TutorRequestMessage.js && node --check src/routes/auth.routes.js && node --check src/routes/user.routes.js && node --check src/routes/tutor.routes.js && node --check src/routes/tutor-request.routes.js && node --check src/routes/tutor-shortlist.routes.js && node --check src/routes/saved-search.routes.js && node --check src/routes/availability.routes.js && node --check src/routes/booking.routes.js && node --check src/routes/credit.routes.js && node --check src/routes/message.routes.js && node --check src/routes/payment.routes.js && node --check src/routes/session.routes.js && node --check src/routes/admin.routes.js && node --check src/routes/verification-preview.routes.js && node --check src/routes/notification.routes.js && node --check src/services/booking-chat.js && node --check src/services/tutor-request-chat.js && node --check src/services/cancellation-policy.js && node --check src/services/default-availability.js && node --check src/services/verification-files.js && node --check src/services/verification-policy.js && node --check src/services/notifications.js && node --check src/middleware/auth.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.1",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "google-auth-library": "^11.1.0",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.10.1",
+    "multer": "^2.4.0",
+    "socket.io": "^4.8.4",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "nodemon": "^3.1.14"
+  }
+}

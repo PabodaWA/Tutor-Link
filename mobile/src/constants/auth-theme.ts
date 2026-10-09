@@ -1,0 +1,1 @@
+export const palette = { primary: '#6254E8', primaryDark: '#493BC9', primarySoft: '#ECE8FF', background: '#F4F2FA', ink: '#211D35', muted: '#746F88', border: '#E5DFF0', danger: '#C2415D', dangerSoft: '#FFF0F3' } as const;

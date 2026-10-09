@@ -1,0 +1,62 @@
+{\rtf1\ansi\deff0
+{\fonttbl{\f0 Calibri;}{\f1 Calibri Light;}}
+\viewkind4\uc1
+\paperw11906\paperh16838\margl1440\margr1440\margt1200\margb1200
+\pard\qc\f1\fs36\b 3. Tech Stack Selection and Justification\b0\par
+\pard\sa240\fs22\par
+
+\pard\sa160\f1\fs28\b 3.1 Frontend\b0\par
+\pard\sa140\f0\fs22 The frontend of the Tutor Link application was developed using React Native with TypeScript and the Expo framework. Expo Router is used for file-based navigation between screens. Expo Go supports regular user-interface testing, while an Expo Development Build is used for native features such as Jitsi video meetings.\par
+\pard\sa140 The frontend also uses supporting libraries such as Expo SecureStore for secure token storage, Expo Notifications for reminders and notifications, and the Jitsi React Native SDK for online tutoring sessions.\par
+\pard\sa100\b Reasons for choosing this technology:\b0\par
+\pard\li360\fi-180\sa80 \'95\tab React Native enables a single codebase to support both Android and iOS.\par
+\pard\li360\fi-180\sa80 \'95\tab Expo simplifies development, testing, device permissions, and application builds.\par
+\pard\li360\fi-180\sa80 \'95\tab TypeScript improves code quality by detecting type-related errors during development.\par
+\pard\li360\fi-180\sa80 \'95\tab Expo Router provides a clear and scalable navigation structure.\par
+\pard\li360\fi-180\sa80 \'95\tab Reusable React components help maintain a consistent user interface.\par
+\pard\li360\fi-180\sa180 \'95\tab Expo Development Builds allow native modules such as Jitsi to be integrated without removing the existing Expo Go workflow.\par
+
+\pard\sa160\f1\fs28\b 3.2 Backend\b0\par
+\pard\sa140\f0\fs22 The backend was developed using Node.js and the Express.js framework. It provides RESTful API endpoints for authentication, tutor discovery, bookings, availability, payments, credits, notifications, reviews, tutor verification, and online tutoring sessions.\par
+\pard\sa140 Mongoose is used to connect the Express backend with MongoDB. Zod is used to validate incoming request data. Additional security is provided through Helmet, CORS configuration, and API rate limiting.\par
+\pard\sa100\b Reasons for choosing this technology:\b0\par
+\pard\li360\fi-180\sa80 \'95\tab Node.js provides efficient asynchronous processing, which is suitable for a mobile application with many API requests.\par
+\pard\li360\fi-180\sa80 \'95\tab Express.js is lightweight and makes it easy to organize the backend into separate routes, middleware, models, and services.\par
+\pard\li360\fi-180\sa80 \'95\tab JavaScript is used on both the frontend and backend, reducing the learning curve and improving development consistency.\par
+\pard\li360\fi-180\sa80 \'95\tab REST APIs allow the mobile application and backend to remain separate and communicate through standard HTTP requests.\par
+\pard\li360\fi-180\sa80 \'95\tab Express has a large ecosystem and supports middleware for authentication, validation, security, and file uploads.\par
+\pard\li360\fi-180\sa180 \'95\tab The modular backend structure makes it easier to maintain and extend individual features.\par
+
+\pard\sa160\f1\fs28\b 3.3 Database\b0\par
+\pard\sa140\f0\fs22 MongoDB is used as the main database, with Mongoose acting as the Object Data Modelling library. The system stores users, tutor profiles, availability slots, bookings, tutoring sessions, payments, reviews, notifications, saved searches, shortlists, and credit transactions as MongoDB documents.\par
+\pard\sa140 Each confirmed online booking is associated with a session document containing a unique, randomly generated meeting-room code. The room is retrieved only after the backend verifies that the user is a participant in the booking and that the session is eligible to be joined.\par
+\pard\sa100\b Reasons for choosing this technology:\b0\par
+\pard\li360\fi-180\sa80 \'95\tab MongoDB's document-based structure is suitable for data containing nested profile information and feature-specific fields.\par
+\pard\li360\fi-180\sa80 \'95\tab It supports flexible schemas, which is useful as the marketplace grows and new features are introduced.\par
+\pard\li360\fi-180\sa80 \'95\tab Mongoose provides schema validation, relationships, timestamps, indexes, and convenient database query methods.\par
+\pard\li360\fi-180\sa80 \'95\tab MongoDB integrates naturally with Node.js and Express.\par
+\pard\li360\fi-180\sa80 \'95\tab Unique indexes can protect important fields such as email addresses and meeting-room codes.\par
+\pard\li360\fi-180\sa180 \'95\tab The database can be scaled to support increasing numbers of students, tutors, bookings, and sessions.\par
+
+\pard\sa160\f1\fs28\b 3.4 Authentication and Authorization\b0\par
+\pard\sa140\f0\fs22 Tutor Link uses JSON Web Tokens for session-based authentication. When a user successfully registers or logs in, the backend generates a signed JWT containing the user ID and role. The mobile application securely stores the token using Expo SecureStore and includes it in the authorization header of protected API requests.\par
+\pard\sa140 Passwords are not stored in plain text. They are hashed using bcrypt before being saved in MongoDB. During login, bcrypt compares the submitted password with the stored password hash.\par
+\pard\sa140 The application also supports Google Sign-In using Google ID tokens. The backend verifies these tokens using Google's official authentication library before creating or authenticating a user account.\par
+\pard\sa140 Role-based authorization is used to control access for students, tutors, and administrators. For example, only booking participants can access a tutoring session, only tutors can complete sessions and edit lesson notes, and only administrators can access administrative functions.\par
+\pard\sa100\b Reasons for choosing this technology:\b0\par
+\pard\li360\fi-180\sa80 \'95\tab JWT authentication is stateless and suitable for REST APIs and mobile applications.\par
+\pard\li360\fi-180\sa80 \'95\tab bcrypt protects passwords using secure salted hashing.\par
+\pard\li360\fi-180\sa80 \'95\tab Expo SecureStore provides safer mobile token storage than ordinary local storage.\par
+\pard\li360\fi-180\sa80 \'95\tab Google Sign-In provides a faster and more convenient authentication option.\par
+\pard\li360\fi-180\sa80 \'95\tab Backend token verification prevents users from gaining access by modifying frontend data.\par
+\pard\li360\fi-180\sa180 \'95\tab Role-based authorization ensures that each user can access only the features permitted for their role.\par
+
+\pard\sa160\f1\fs28\b 3.5 Technology Summary\b0\par
+\pard\sa100\f0\fs22\b Frontend:\b0  React Native, TypeScript, Expo, Expo Router\par
+\pard\sa100\b Native video meetings:\b0  Jitsi React Native SDK, Expo Development Build\par
+\pard\sa100\b Backend:\b0  Node.js, Express.js, REST APIs\par
+\pard\sa100\b Database:\b0  MongoDB, Mongoose\par
+\pard\sa100\b Authentication:\b0  JWT, bcrypt, Google Sign-In, Expo SecureStore\par
+\pard\sa100\b Validation and security:\b0  Zod, Helmet, CORS, Express Rate Limit\par
+\pard\sa100\b Notifications:\b0  Expo Notifications\par
+}

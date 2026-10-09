@@ -1,0 +1,119 @@
+3. TECH STACK SELECTION AND JUSTIFICATION
+
+
+3.1 FRONTEND
+
+The frontend of the Tutor Link application was developed using React Native, TypeScript, and the Expo framework. Expo Router is used to manage navigation between the screens of the mobile application.
+
+Expo Go is used for normal user-interface testing. An Expo Development Build is used for features that require native modules, such as Jitsi video meetings. The frontend also uses Expo SecureStore to store authentication tokens securely and Expo Notifications to provide lesson reminders and other notifications.
+
+Reasons for choosing React Native and Expo:
+
+1. React Native allows the same codebase to be used for both Android and iOS applications.
+
+2. Expo makes the application easier to develop, test, and build.
+
+3. TypeScript helps identify programming errors during development and improves code quality.
+
+4. Expo Router provides a simple and organized file-based navigation structure.
+
+5. React Native supports reusable components, which helps maintain a consistent user interface throughout the application.
+
+6. Expo Development Builds support native libraries such as the Jitsi React Native SDK while keeping Expo Go available for normal UI testing.
+
+
+3.2 BACKEND
+
+The backend of Tutor Link was developed using Node.js and Express.js. It provides RESTful API endpoints that allow the mobile application to communicate with the server.
+
+The backend handles user authentication, tutor discovery, tutor availability, bookings, payments, credit transactions, notifications, reviews, tutor verification, saved tutors, and online tutoring sessions.
+
+Mongoose is used to connect the backend to MongoDB. Zod is used to validate data received from the mobile application. Helmet, CORS, and Express Rate Limit are used to improve API security.
+
+Reasons for choosing Node.js and Express.js:
+
+1. Node.js provides efficient asynchronous processing and is suitable for applications that handle many API requests.
+
+2. Express.js is lightweight and makes it easy to create RESTful APIs.
+
+3. JavaScript is used in both the frontend and backend, making development more consistent.
+
+4. Express.js allows the backend to be separated into routes, middleware, models, and services.
+
+5. Node.js has a large package ecosystem that supports authentication, validation, security, notifications, and file uploads.
+
+6. The modular backend structure makes the application easier to maintain and extend.
+
+
+3.3 DATABASE
+
+MongoDB is used as the main database of the Tutor Link application. Mongoose is used as the Object Data Modelling library to communicate with MongoDB.
+
+The database stores users, tutor profiles, availability slots, bookings, tutoring sessions, payments, reviews, notifications, saved searches, tutor shortlists, and credit transactions.
+
+Each confirmed online booking is connected to a session document containing a unique and randomly generated meeting-room code. The room information is provided only after the backend confirms that the user belongs to the booking and that the lesson is ready to be joined.
+
+Reasons for choosing MongoDB:
+
+1. MongoDB uses a flexible document-based data structure.
+
+2. It is suitable for storing nested information such as tutor profiles, qualifications, interests, and lesson details.
+
+3. Mongoose provides schemas, validation, indexes, timestamps, and relationships between documents.
+
+4. MongoDB integrates easily with Node.js and Express.js.
+
+5. Unique indexes can protect important information such as email addresses and meeting-room codes.
+
+6. MongoDB can be scaled as the number of users, bookings, and tutoring sessions increases.
+
+
+3.4 AUTHENTICATION AND AUTHORIZATION
+
+Tutor Link uses JSON Web Tokens (JWT) for user authentication. When a user successfully registers or logs in, the backend creates a signed JWT containing the user's ID and role.
+
+The mobile application stores this token securely using Expo SecureStore. The token is sent in the authorization header when the application makes a request to a protected backend endpoint.
+
+User passwords are not stored as plain text. The bcrypt library hashes passwords before they are stored in MongoDB. During login, bcrypt securely compares the submitted password with the stored password hash.
+
+The application also supports Google Sign-In. The backend verifies the Google ID token using Google's official authentication library before creating or authenticating the user.
+
+Tutor Link uses role-based authorization for students, tutors, and administrators. Students can book tutors and join their own lessons. Tutors can manage their bookings, conduct lessons, and add lesson notes. Administrators can manage users and review tutor verification requests.
+
+Reasons for choosing these authentication technologies:
+
+1. JWT authentication is stateless and suitable for mobile applications and REST APIs.
+
+2. bcrypt protects user passwords using secure salted hashing.
+
+3. Expo SecureStore provides more secure token storage than ordinary local storage.
+
+4. Google Sign-In provides users with a faster and more convenient login option.
+
+5. Backend token verification prevents unauthorized users from accessing protected information.
+
+6. Role-based authorization ensures that users can access only the features allowed for their roles.
+
+
+3.5 TECHNOLOGY SUMMARY
+
+Frontend:
+React Native, TypeScript, Expo, and Expo Router
+
+Native Video Meetings:
+Jitsi React Native SDK and Expo Development Build
+
+Backend:
+Node.js, Express.js, and RESTful APIs
+
+Database:
+MongoDB and Mongoose
+
+Authentication:
+JWT, bcrypt, Google Sign-In, and Expo SecureStore
+
+Validation and Security:
+Zod, Helmet, CORS, and Express Rate Limit
+
+Notifications:
+Expo Notifications
